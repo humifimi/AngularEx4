@@ -1,0 +1,20 @@
+
+<form [formGroup]="myform" (ngSubmit)="onSubmit()" >
+  <label>Name : </label>
+  <input type="text" id="name" formControlName = "name" />
+  <div [ngStyle] = "{color :'red'}" *ngIf = "!myform.controls['name'].valid" >
+    Required
+  </div>
+  <br>
+  <label>Email : </label>
+  <input type="text" id="email" formControlName = "email" />
+  <div [ngStyle] = "{color :'red'}" *ngIf = "!myform.controls['email'].valid" > Required</div>
+  <br>
+  <label>Post : </label>
+  <textarea  id="post" formControlName ="post" ></textarea>
+  <div [ngStyle] = "{color :'red'}" *ngIf = "!myform.controls['post'].valid" >Lenght must be maximum than 10</div>
+  <br>
+  <button type="button" (click) = "getData()" > Get Data</button>
+  <button type="submit" [disabled] = "!myform.valid" >  Submit </button>
+</form>
+
